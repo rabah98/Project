@@ -27,7 +27,6 @@ const daySelectionBar = document.getElementById('day-selection-bar')
 //render functions
 function funcToRenderDayCards(daysObject) {
    daysObject.forEach(day => {
-      console.log(day)
       const liDate = document.createElement('li')
       const liWeather = document.createElement('li')
       const weatherIcon = document.createElement( 'img' )
