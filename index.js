@@ -16,17 +16,14 @@ const daySelectionBar = document.getElementById('day-selection-bar')
       // placeholder fetch for testing
       fetch('http://www.7timer.info/bin/api.pl?lon=-79.87&lat=40.42&product=civillight&output=json')
       .then( res => res.json())
-      .then( daysObject => {
-      daysObject.forEach(dayElement => {
-         // const dayCard = document.createElement('card')
-         // const dayDate = dayElement.date;
-         console.log()
-
-
-            
+      .then( daysArray => {
+         daysArray.forEach(daysObject => {
+           funcToRenderDogObj(daysObject)
          });
-      })
+       })
 
    }
    initialFetch()
 //render functions
+function funcToRenderDayCards(daysObject) {
+   }
