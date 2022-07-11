@@ -27,7 +27,21 @@ const daySelectionBar = document.getElementById('day-selection-bar')
 //render functions
 function funcToRenderDayCards(daysObject) {
    daysObject.forEach(day => {
-      console.log(day.weather)
+      console.log(day)
+      // const dayCard = document.createElement('card')
+      const liDate = document.createElement('li')
+      const liWeather = document.createElement('li')
+      const dayDate = day.date 
+      const dayWeather = day.weather
+      liDate.append(dayDate)
+      liWeather.append(dayWeather)
+      // dayCard.append(liDate, liWeather)
+      daySelectionBar.append(liDate, liWeather)
+
+     
+      
+
+
       
    });
    }
