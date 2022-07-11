@@ -27,6 +27,7 @@ const daySelectionBar = document.getElementById('day-selection-bar')
 //render functions
 function funcToRenderDayCards(daysObject) {
    daysObject.forEach(day => {
+      const dayCard = document.createElement('div')
       const liDate = document.createElement('li')
       const liWeather = document.createElement('li')
       const weatherIcon = document.createElement( 'img' )
@@ -49,11 +50,16 @@ function funcToRenderDayCards(daysObject) {
        } else {
          weatherIcon.src = `assets/weathericons/oops.png`
        }
+      liWeather.append(dayWeather)
       liWeather.append(weatherIcon)     
       liDate.append(dayDate)
-      liWeather.append(dayWeather)
-      // dayCard.append(liDate, liWeather)
-      daySelectionBar.append(liDate, liWeather)
-      
+      dayCard.appendChild(liDate)
+      dayCard.appendChild(liWeather)
+      //add event listener to the dayCard here
+      daySelectionBar.append(dayCard) 
    });
    }
+
+function renderFocusDay() {
+   
+}   

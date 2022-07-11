@@ -1,6 +1,18 @@
-form {
+/* form {
     background-color: black;
     color: blue;
     padding: 20px;
     display: table;
+} */
+
+#day-selection-bar>div {
+    list-style: none;
+    display: inline-block;
+    text-align: left;
+    padding: 0 0.5rem;
+    /* border-bottom: 2px;
+    border-top: 2px;
+    border-width: 1px;
+    border-color: black; */
+    
 }
