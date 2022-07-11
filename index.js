@@ -28,7 +28,6 @@ const daySelectionBar = document.getElementById('day-selection-bar')
 function funcToRenderDayCards(daysObject) {
    daysObject.forEach(day => {
       console.log(day)
-      // const dayCard = document.createElement('card')
       const liDate = document.createElement('li')
       const liWeather = document.createElement('li')
       const dayDate = day.date 
@@ -37,11 +36,6 @@ function funcToRenderDayCards(daysObject) {
       liWeather.append(dayWeather)
       // dayCard.append(liDate, liWeather)
       daySelectionBar.append(liDate, liWeather)
-
-     
-      
-
-
       
    });
    }
