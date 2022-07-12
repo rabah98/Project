@@ -7,13 +7,14 @@ const locationUrl = `http://www.7timer.info/bin/api.pl?lon=${userLon}&lat=${user
 
 const daySelectionBar = document.getElementById('day-selection-bar')
 const focusDay = document.getElementById('day-focus-container')
+const focusDayCardInbox = document.querySelectorAll(':scope > div')
 
-document.getElementById().addEventListener("submit", (e) => {
-   const text= e.target.comment.value
-    const li=document.createElement("li")
-    li.textContent=text
-    commentlist.append(li))
-}
+// document.getElementById().addEventListener("submit", (e) => {
+//    const text= e.target.comment.value
+//     const li=document.createElement("li")
+//     li.textContent=text
+//     commentlist.append(li)
+// });
 
 // Event lisntener for user inputs
 userInputs.addEventListener('submit', (e) => {
@@ -47,31 +48,7 @@ function funcToRenderDayCards(daysObject) {
       const dayDate = day.date
       // const writeDate = toSplitandReadDateForWriter(dayDate); this won't work until we debug this function
       let dayWeather = day.weather
-      if (dayWeather === 'clear') {
-         writeWeather.textContent = 'Clear';
-         weatherIcon.src = `assets/weathericons/clear.png` ;
-       } else if (dayWeather === 'pcloudy') {
-         writeWeather.textContent = 'Partly Cloudy';
-         weatherIcon.src = `assets/weathericons/pcloudy.png` ;
-       } else if (dayWeather === 'cloudy') {
-         writeWeather.textContent = 'Cloudy';
-         weatherIcon.src = `assets/weathericons/cloudy.png` ;
-       } else if (dayWeather === 'rain' || 'lightrain') {
-         writeWeather.textContent = 'Rain';
-         weatherIcon.src = `assets/weathericons/rain.png` ;   
-       } else if (dayWeather === 'snow' || 'lightsnow') {
-         writeWeather.textContent = 'Snow';
-         weatherIcon.src = `assets/weathericons/snow.png` ;
-       } else if (dayWeather === 'ts') {
-         writeWeather.textContent = 'Thunder Storm';
-         weatherIcon.src = `assets/weathericons/ts.png` ; 
-       } else if (dayWeather === 'tsrain') {
-         writeWeather.textContent = 'Thunder and Rain';
-         weatherIcon.src = `assets/weathericons/tsrain.png` ;
-       } else {
-         writeWeather.textContent = "there was error:("
-         weatherIcon.src = `assets/weathericons/oops.png`
-       }
+      weatherAssigner(dayWeather, writeWeather, weatherIcon)
       liWeather.append(writeWeather) 
       liWeather.append(weatherIcon)     
       liDate.append(dayDate) //We should cut this for 'writeDate'
@@ -79,19 +56,54 @@ function funcToRenderDayCards(daysObject) {
       dayCard.appendChild(liWeather)
       //add event listener to the dayCard here
       dayCard.addEventListener('click', () => {
+        const focusDayWeatherIcon = document.createElement( 'img' )
+        const focusDayCard = document.createElement('div')
         const focusDayDate = day.date
         const focusDayWeather = day.weather
+        const focusDayWeatherWriter = document.createElement( 'p' )
         const liFocusDate = document.createElement('li')
         const liFocusWeather = document.createElement('li')
+        weatherAssigner(focusDayWeather,focusDayWeatherWriter, focusDayWeatherIcon)
+        focusDayCard.id = div-that-card-replaces
         liFocusDate.append(focusDayDate)
-        liFocusWeather.append(focusDayWeather)
-        focusDay.append(liFocusDate, liFocusWeather)
-
+        liFocusWeather.append(focusDayWeatherWriter)
+        focusDay.replaceChild(focusDayCard, focusDay)
+        focusDayCard.appendChild(focusDayWeatherIcon)
+        focusDayCard.appendChild(liFocusWeather)
+        focusDayCard.appendChild(liFocusDate)
 
       })
       daySelectionBar.append(dayCard) 
    });
    }
+
+function weatherAssigner(dayWeather, writeWeather, weatherIcon) {
+  if (dayWeather === 'clear') {
+    writeWeather.textContent = 'Clear'
+    weatherIcon.src = `assets/weathericons/clear.png`
+  } else if (dayWeather === 'pcloudy') {
+    writeWeather.textContent = 'Partly Cloudy'
+    weatherIcon.src = `assets/weathericons/pcloudy.png`
+  } else if (dayWeather === 'cloudy') {
+    writeWeather.textContent = 'Cloudy'
+    weatherIcon.src = `assets/weathericons/cloudy.png`
+  } else if (dayWeather === 'rain' || 'lightrain') {
+    writeWeather.textContent = 'Rain'
+    weatherIcon.src = `assets/weathericons/rain.png`
+  } else if (dayWeather === 'snow' || 'lightsnow') {
+    writeWeather.textContent = 'Snow'
+    weatherIcon.src = `assets/weathericons/snow.png`
+  } else if (dayWeather === 'ts') {
+    writeWeather.textContent = 'Thunder Storm'
+    weatherIcon.src = `assets/weathericons/ts.png`
+  } else if (dayWeather === 'tsrain') {
+    writeWeather.textContent = 'Thunder and Rain'
+    weatherIcon.src = `assets/weathericons/tsrain.png`
+  } else {
+    writeWeather.textContent = "there was error:("
+    weatherIcon.src = `assets/weathericons/oops.png`
+  }
+}
 
 function renderFocusDay() {
 
