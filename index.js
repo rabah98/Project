@@ -56,8 +56,12 @@ function funcToRenderDayCards(daysObject) {
       liWeather.append(writeWeather) 
       liWeather.append(weatherIcon)     
       liDate.append(dayDate) //We should cut this for 'writeDate'
+      const likeButton = document.createElement('button')
+      // likeButton.id = like_button
+      likeButton.textContent = 'likes'
       dayCard.appendChild(liDate)
       dayCard.appendChild(liWeather)
+      dayCard.appendChild(likeButton)
       //add event listener to the dayCard here
       dayCard.addEventListener('click', () => {
         const focusDayWeatherIcon = document.createElement( 'img' )
@@ -77,9 +81,9 @@ function funcToRenderDayCards(daysObject) {
         liFocusWeather.append(focusDayWeatherWriter)
         focusDayCard.setAttribute('id','div-that-card-replaces') 
         focusDay.innerHTML = ""
-        // const likeButton = document.createElement('button')
-        // <button id="like_button">Like
-        // likeButton.id = like_button
+
+        
+
 
         focusDay.append(focusDayCard)
         focusDayCard.appendChild(focusDayWeatherIcon)
