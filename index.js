@@ -10,13 +10,19 @@ const focusDay = document.getElementById('day-focus-container')
 const focusDayCardInbox = document.querySelectorAll(':scope > div')
 const divThatCardReplaces = document.getElementById('div-that-card-replaces')
 
-// document.getElementById().addEventListener("submit", (e) => {
-//    const text= e.target.comment.value
-//     const li=document.createElement("li")
-//     li.textContent=text
-//     commentlist.append(li)
-// });
+ function commentSection(e){
+   const commentList=document.getElementById("geek")
+   const text= e.target.dogger.value
+   const li=document.createElement("li")
+  li.textContent=text
+   commentList.append(li)
+ console.log("lele")
 
+ }
+ document.getElementById("comment-form").addEventListener("submit", (e) => {
+   commentSection(e)
+   e.preventDefault()
+});
 // Event lisntener for user inputs
 userInputs.addEventListener('submit', (e) => {
   e.preventDefault()
