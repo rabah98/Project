@@ -71,7 +71,8 @@ function funcToRenderDayCards(daysObject) {
         liFocusDate.append(focusDayDate)
         liFocusWeather.append(focusDayWeatherWriter)
         focusDayCard.setAttribute('id','div-that-card-replaces') 
-        focusDay.replaceChild(focusDayCard, divThatCardReplaces)
+        focusDay.innerHTML = ""
+        focusDay.append(focusDayCard)
         focusDayCard.appendChild(focusDayWeatherIcon)
         focusDayCard.appendChild(liFocusWeather)
         focusDayCard.appendChild(liFocusDate)
