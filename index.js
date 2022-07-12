@@ -9,6 +9,7 @@ const daySelectionBar = document.getElementById('day-selection-bar')
 const focusDay = document.getElementById('day-focus-container')
 const focusDayCardInbox = document.querySelectorAll(':scope > div')
 const divThatCardReplaces = document.getElementById('div-that-card-replaces')
+const divForComments = document.getElementById('"comments-container"')
 
 // document.getElementById().addEventListener("submit", (e) => {
 //    const text= e.target.comment.value
@@ -82,6 +83,8 @@ function funcToRenderDayCards(daysObject) {
       daySelectionBar.append(dayCard) 
    });
    }
+//Fikre code the comments here
+
 
 function weatherAssigner(dayWeather, writeWeather, weatherIcon) {
   if (dayWeather === 'clear') {
