@@ -28,12 +28,23 @@
     
 }
 #day-selection-bar {
-    position: relative;
+    position: absolute;
     width: 1200px;
-    height: 100px;
+    height: 80px;
     margin: 25px auto;
 }
-#day-focus-container
+#day-focus-container{
+    width: 400px;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;   
+    transform: translate(-50%,-50%);
+    background-color:rgb(173, 205, 234);
+    border-radius: 1rem;
+    padding: 10px 20px;
+}
 
 #div-that-card-replaces{
     list-style: none;

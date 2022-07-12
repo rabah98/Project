@@ -79,8 +79,11 @@ function funcToRenderDayCards(daysObject) {
         const focusDayWeatherWriter = document.createElement( 'p' )
         const liFocusDate = document.createElement('li')
         const liFocusWeather = document.createElement('li')
+        const focusDayCardLineOne = document.createElement( 'p' )
+        const focusDayCardLineTwo = document.createElement( 'p' )
         weatherAssigner(focusDayWeather,focusDayWeatherWriter, focusDayWeatherIcon)
-        
+        focusDayCardLineOne.textContent = focusDayTemps
+        focusDayCardLineTwo.textContent = focusDayWind
         liFocusDate.append(focusDayDate)
         liFocusWeather.append(focusDayWeatherWriter)
         focusDayCard.setAttribute('id','div-that-card-replaces') 
@@ -90,10 +93,13 @@ function funcToRenderDayCards(daysObject) {
 
 
         focusDay.append(focusDayCard)
+        focusDayCard.appendChild(focusDayCardLineOne)
         focusDayCard.appendChild(focusDayWeatherIcon)
         focusDayCard.appendChild(liFocusWeather)
         focusDayCard.appendChild(liFocusDate)
-        focusDayCard.append(focusDayTemps + '\n' + focusDayWind)
+        focusDayCard.appendChild(focusDayCardLineTwo)
+        
+
         
 
       })
