@@ -9,7 +9,6 @@ const daySelectionBar = document.getElementById('day-selection-bar')
 const focusDay = document.getElementById('day-focus-container')
 const focusDayCardInbox = document.querySelectorAll(':scope > div')
 const divThatCardReplaces = document.getElementById('div-that-card-replaces')
-const divForComments = document.getElementById('"comments-container"')
 
 // document.getElementById().addEventListener("submit", (e) => {
 //    const text= e.target.comment.value
@@ -31,9 +30,12 @@ userInputs.addEventListener('submit', (e) => {
       // placeholder fetch for testing
       fetch(locationUrl)
       .then( res => res.json())
-      .then( days => funcToRenderDayCards(days.dataseries))
+      .then( days => () => { 
+        console.log(days)
+        funcToRenderDayCards(days.dataseries) 
+      })}
          
-      }
+
       
    
 
@@ -74,6 +76,10 @@ function funcToRenderDayCards(daysObject) {
         liFocusWeather.append(focusDayWeatherWriter)
         focusDayCard.setAttribute('id','div-that-card-replaces') 
         focusDay.innerHTML = ""
+        // const likeButton = document.createElement('button')
+        // <button id="like_button">Like
+        // likeButton.id = like_button
+
         focusDay.append(focusDayCard)
         focusDayCard.appendChild(focusDayWeatherIcon)
         focusDayCard.appendChild(liFocusWeather)
@@ -83,8 +89,6 @@ function funcToRenderDayCards(daysObject) {
       daySelectionBar.append(dayCard) 
    });
    }
-//Fikre code the comments here
-
 
 function weatherAssigner(dayWeather, writeWeather, weatherIcon) {
   if (dayWeather === 'clear') {
