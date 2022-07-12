@@ -25,15 +25,17 @@ userInputs.addEventListener('submit', (e) => {
 })
 
 //fetch function
-   function initialFetch () {
-      // fetch(locationUrl)
-      // placeholder fetch for testing
-      fetch(locationUrl)
-      .then( res => res.json())
-      .then( days => {
-        funcToRenderDayCards(days.dataseries) 
-      })}
-         
+function initialFetch () {
+  // fetch(locationUrl)
+  // placeholder fetch for testing
+  fetch(locationUrl)
+  .then( res => res.json())
+  .then( days => {
+    console.log(days)
+    funcToRenderDayCards(days.dataseries) 
+  })
+}
+      
 
       
    
@@ -58,7 +60,7 @@ function funcToRenderDayCards(daysObject) {
       liDate.append(dayDate) //We should cut this for 'writeDate'
       const likeButton = document.createElement('button')
       // likeButton.id = like_button
-      likeButton.textContent = 'likes'
+      likeButton.textContent = '❤️'
       dayCard.appendChild(liDate)
       dayCard.appendChild(liWeather)
       dayCard.appendChild(likeButton)
