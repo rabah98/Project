@@ -68,7 +68,9 @@ function funcToRenderDayCards(daysObject) {
         const focusDayCard = document.createElement('div')
         const dayTempHigh = day.temp2m.max
         const dayTempLow =  day.temp2m.min
-        const focusDayTemps = ('High of '+ dayTempHigh +'\nLow of ' + dayTempLow )
+        const dayWind = day.wind10m_max
+        const focusDayWind = ('10m Wind Speed rating:' + dayWind)
+        const focusDayTemps = ('High of '+ dayTempHigh +'; Low of ' + dayTempLow )
         const focusDayDateToString = day.date.toString()
         const focusDayDate = `${focusDayDateToString.substring(4,6)} - ${focusDayDateToString.substring(6,8)} - ${focusDayDateToString.substring(0,4)}`
         const focusDayWeather = day.weather
@@ -89,7 +91,8 @@ function funcToRenderDayCards(daysObject) {
         focusDayCard.appendChild(focusDayWeatherIcon)
         focusDayCard.appendChild(liFocusWeather)
         focusDayCard.appendChild(liFocusDate)
-        focusDayCard.append(focusDayTemps)
+        focusDayCard.append(focusDayTemps + '\n' + focusDayWind)
+        
 
       })
       daySelectionBar.append(dayCard) 
