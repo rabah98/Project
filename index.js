@@ -1,20 +1,26 @@
 //global variables
 
-// const userInput = document.getElementById('user-loc')
-const userLon = -79.87
-const userLat = 40.42
+const userInputs = document.querySelector('form')
+const userLon = document.getElementById('LON')
+const userLat = document.getElementById('LAT')
 const locationUrl = `http://www.7timer.info/bin/api.pl?lon=${userLon}&lat=${userLat}&product=civillight&output=json`
 
 const daySelectionBar = document.getElementById('day-selection-bar')
+const focusDay = document.getElementById('day-focus-container')
 
  
+// Event lisntener for user inputs
+userInputs.addEventListener('submit', (e) => {
+  e.preventDefault()
+  initialFetch()
 
+})
 
 //fetch function
    function initialFetch () {
       // fetch(locationUrl)
       // placeholder fetch for testing
-      fetch('http://www.7timer.info/bin/api.pl?lon=-79.87&lat=40.42&product=civillight&output=json')
+      fetch(locationUrl)
       .then( res => res.json())
       .then( days => funcToRenderDayCards(days.dataseries))
          
@@ -23,7 +29,7 @@ const daySelectionBar = document.getElementById('day-selection-bar')
    
 
    
-   initialFetch()
+ 
 //render functions
 function funcToRenderDayCards(daysObject) {
    daysObject.forEach(day => {
@@ -66,6 +72,17 @@ function funcToRenderDayCards(daysObject) {
       dayCard.appendChild(liDate)
       dayCard.appendChild(liWeather)
       //add event listener to the dayCard here
+      dayCard.addEventListener('click', () => {
+        const focusDayDate = day.date
+        const focusDayWeather = day.weather
+        const liFocusDate = document.createElement('li')
+        const liFocusWeather = document.createElement('li')
+        liFocusDate.append(focusDayDate)
+        liFocusWeather.append(focusDayWeather)
+        focusDay.append(liFocusDate, liFocusWeather)
+
+
+      })
       daySelectionBar.append(dayCard) 
    });
    }
