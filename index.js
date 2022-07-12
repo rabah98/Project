@@ -61,7 +61,8 @@ function funcToRenderDayCards(daysObject) {
         const focusDayWeatherIcon = document.createElement( 'img' )
         const focusDayCard = document.createElement('div')
        
-        const focusDayDate = day.date
+        const focusDayDateToString = day.date.toString()
+        const focusDayDate = `${focusDayDateToString.substring(4,6)} - ${focusDayDateToString.substring(6,8)} - ${focusDayDateToString.substring(0,4)}`
         const focusDayWeather = day.weather
         const focusDayWeatherWriter = document.createElement( 'p' )
         const liFocusDate = document.createElement('li')
