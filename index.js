@@ -8,6 +8,7 @@ const locationUrl = `http://www.7timer.info/bin/api.pl?lon=${userLon}&lat=${user
 const daySelectionBar = document.getElementById('day-selection-bar')
 const focusDay = document.getElementById('day-focus-container')
 const focusDayCardInbox = document.querySelectorAll(':scope > div')
+const divThatCardReplaces = document.getElementById('div-that-card-replaces')
 
 // document.getElementById().addEventListener("submit", (e) => {
 //    const text= e.target.comment.value
@@ -45,7 +46,8 @@ function funcToRenderDayCards(daysObject) {
       const liWeather = document.createElement('li')
       const weatherIcon = document.createElement( 'img' )
       const writeWeather = document.createElement('p')
-      const dayDate = day.date
+      const dayDateToString = day.date.toString()
+      const dayDate = `${dayDateToString.substring(0,4)}/${dayDateToString.substring(4,6)}/${dayDateToString.substring(6,8)}`
       // const writeDate = toSplitandReadDateForWriter(dayDate); this won't work until we debug this function
       let dayWeather = day.weather
       weatherAssigner(dayWeather, writeWeather, weatherIcon)
@@ -58,16 +60,18 @@ function funcToRenderDayCards(daysObject) {
       dayCard.addEventListener('click', () => {
         const focusDayWeatherIcon = document.createElement( 'img' )
         const focusDayCard = document.createElement('div')
+       
         const focusDayDate = day.date
         const focusDayWeather = day.weather
         const focusDayWeatherWriter = document.createElement( 'p' )
         const liFocusDate = document.createElement('li')
         const liFocusWeather = document.createElement('li')
         weatherAssigner(focusDayWeather,focusDayWeatherWriter, focusDayWeatherIcon)
-        focusDayCard.id = div-that-card-replaces
+        
         liFocusDate.append(focusDayDate)
         liFocusWeather.append(focusDayWeatherWriter)
-        focusDay.replaceChild(focusDayCard, focusDay)
+        focusDayCard.setAttribute('id','div-that-card-replaces') 
+        focusDay.replaceChild(focusDayCard, divThatCardReplaces)
         focusDayCard.appendChild(focusDayWeatherIcon)
         focusDayCard.appendChild(liFocusWeather)
         focusDayCard.appendChild(liFocusDate)
