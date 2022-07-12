@@ -8,7 +8,13 @@ const locationUrl = `http://www.7timer.info/bin/api.pl?lon=${userLon}&lat=${user
 const daySelectionBar = document.getElementById('day-selection-bar')
 const focusDay = document.getElementById('day-focus-container')
 
- 
+document.getElementById().addEventListener("submit", (e) => {
+   const text= e.target.comment.value
+    const li=document.createElement("li")
+    li.textContent=text
+    commentlist.append(li))
+}
+
 // Event lisntener for user inputs
 userInputs.addEventListener('submit', (e) => {
   e.preventDefault()
