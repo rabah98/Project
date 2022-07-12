@@ -5,14 +5,31 @@
     display: table;
 } */
 
-#day-selection-bar>div {
+#pagetitle {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#signature {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#day-selection-bar > div {
     list-style: none;
     display: inline-block;
     text-align: left;
     padding: 0 0.5rem;
-    /* border-bottom: 2px;
-    border-top: 2px;
-    border-width: 1px;
-    border-color: black; */
+    background: rgb(173, 205, 234);
+    float: none;
+    margin: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
     
+}
+#day-selection-bar {
+    position: relative;
+    width: 1200px;
+    height: 100px;
+    margin: 25px auto;
 }
