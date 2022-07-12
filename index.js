@@ -47,7 +47,7 @@ function funcToRenderDayCards(daysObject) {
       const weatherIcon = document.createElement( 'img' )
       const writeWeather = document.createElement('p')
       const dayDateToString = day.date.toString()
-      const dayDate = `year: ${dayDateToString.substring(0,4)}, month: ${dayDateToString.substring(4,6)}, day: ${dayDateToString.substring(6,8)}`
+      const dayDate = `${dayDateToString.substring(4,6)} - ${dayDateToString.substring(6,8)} - ${dayDateToString.substring(0,4)}`
       // const writeDate = toSplitandReadDateForWriter(dayDate); this won't work until we debug this function
       let dayWeather = day.weather
       weatherAssigner(dayWeather, writeWeather, weatherIcon)
