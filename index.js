@@ -8,7 +8,9 @@ const locationUrl = `http://www.7timer.info/bin/api.pl?lon=${userLon}&lat=${user
 const daySelectionBar = document.getElementById('day-selection-bar')
 const focusDay = document.getElementById('day-focus-container')
 const focusDayCardInbox = document.querySelectorAll(':scope > div')
-const divThatCardReplaces = document.getElementById('div-that-card-replaces')
+const daySelectionBarReplacer = document.createElement('div')
+daySelectionBarReplacer.id = 'day-selection-bar-replacer'
+// const divThatCardReplaces = document.getElementById('div-that-card-replaces')
 
 // document.getElementById().addEventListener("submit", (e) => {
 //    const text= e.target.comment.value
@@ -21,7 +23,9 @@ const divThatCardReplaces = document.getElementById('div-that-card-replaces')
 userInputs.addEventListener('submit', (e) => {
   if (userLat.value && userLon.value) {
     e.preventDefault()
+    daySelectionBar.innerHTML = ""
   initialFetch()
+  // daySelectionBar.append(daySelectionBarReplacer)
   }
   
 })
@@ -47,6 +51,9 @@ function initialFetch () {
 //render functions
 function funcToRenderDayCards(daysObject) {
    daysObject.forEach(day => {
+
+      
+
       const dayCard = document.createElement('div')
       const liDate = document.createElement('li')
       const liWeather = document.createElement('li')
@@ -65,13 +72,15 @@ function funcToRenderDayCards(daysObject) {
       likeCounterSpan.textContent = 0
       likeButton.textContent = `❤️ ${likeCounterSpan.textContent} likes`
       
-      likeButton.addEventListener('click', () => {
-      likeCounterSpan.textContent = parseInt(likeCounterSpan.textContent) + 1
-      likeButton.textContent = `❤️ ${likeCounterSpan.textContent} likes`
+      likeButton.addEventListener('click', (e) => {
+        e.stopPropagation()
+        likeCounterSpan.textContent = parseInt(likeCounterSpan.textContent) + 1
+        likeButton.textContent = `❤️ ${likeCounterSpan.textContent} likes`
       })
       dayCard.appendChild(liDate)
       dayCard.appendChild(liWeather)
       dayCard.appendChild(likeButton)
+     
       
       //add event listener to the dayCard here
       dayCard.addEventListener('click', () => {
@@ -112,7 +121,8 @@ function funcToRenderDayCards(daysObject) {
         
 
       })
-      daySelectionBar.append(dayCard) 
+      
+      daySelectionBar.append(dayCard)    
    });
    }
 
