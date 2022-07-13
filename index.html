@@ -5,48 +5,33 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Walk Me, Maybe?</title>
-       
+        <h1 id="pagetitle">Walk Me, Maybe?</h1>
+        <h3 id="signature">a webapp by Rabah, Fikre, and Alex F</h3>
         <link rel="stylesheet" href="style.css">
         <script defer src="index.js"></script>
     </head>
-
     <body>
-        <h1 id="pagetitle">Walk Me, Maybe?</h1>
-        <h3 id="signature">a webapp by Rabah, Fikre, and Alex F</h3>
-        <p>Go to <a href="https://www.google.com/maps/">Google Maps</a> and get your LAT and LON by right clicking your location.</p>
-
+        <p>Go get your LAT and LON</p>
         <form id="user-inputs">
             <input id="LAT" type="number" step="0.01" placeholder="Enter your LAT">
             <input id="LON" type="number" step="0.01" placeholder="Enter your LON">
             <input type="submit" value="submit">
         </form>
        
-
         
-        <div id="day-selection-bar">
-           
-        </div>
+        <div id="day-selection-bar"></div>
         <div id="day-focus-container">
-            <!-- <div id="div-that-card-replaces"></div> -->
-        </div>
-        <div id="dog-house">
-            <!-- This is where the dog's emoji will live-->
-            
+            <div id="div-that-card-replaces"></div>
         </div>
         <div id="comments-container">
-           <form id="comment-form"> 
-            <input type="text" id="dogger" placeholder="Enter comment here">
-            
-            <input type="submit" value="submit">
             <!-- Fikre code the comment form -->
-           </form>
-           <ul id="geek">
-                
-        </ul>
+        </div>
+        <div id="dog-house">
+             <!-- This is where the dog's emoji will live-->
+
         </div>
         <div id="image-dock">
             <img id="dogImage" src="assets/dog/cositaTheDog.png"></div>
-  
-       
+
+
     </body>
-</html>

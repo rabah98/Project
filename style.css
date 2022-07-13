@@ -17,8 +17,6 @@
     margin: 15px;
     box-sizing: border-box;
     border-radius: 10px;
-
-    
 }
 #day-selection-bar {
     position: absolute;
@@ -33,10 +31,9 @@
     left: 50%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: large;   
-    transform: translate(-50%,-60%);
+    transform: translate(-50%,-50%);
     background-color:rgb(173, 205, 234);
-    border-radius: 1rem;
-    
+    border-radius: 1rem;   
 }
 
 #div-that-card-replaces{
@@ -58,6 +55,8 @@
 #dog-house {
     position: fixed;
     bottom: 22%;
+    left: 0;
+    width: 185px;
 }
 #comments-container{
     width: 30%;

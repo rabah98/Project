@@ -84,24 +84,73 @@ function weatherAssigner(dayWeather, writeWeather, weatherIcon) {
   if (dayWeather === 'clear') {
     writeWeather.textContent = 'Clear'
     weatherIcon.src = `assets/weathericons/clear.png`
+    weatherIcon.addEventListener('mouseover', (event) => {});
+    onmouseover = (event) => { 
+      const dogReact = document.createElement( 'p' )
+      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogHouse.innerText = ''
+      dogHouse.append(dogReact)
+    };
   } else if (dayWeather === 'pcloudy') {
     writeWeather.textContent = 'Partly Cloudy'
     weatherIcon.src = `assets/weathericons/pcloudy.png`
+    weatherIcon.addEventListener('mouseover', (event) => {});
+    onmouseover = (event) => { 
+      const dogReact = document.createElement( 'p' )
+      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogHouse.innerText = ''
+      dogHouse.append(dogReact)
+    };
   } else if (dayWeather === 'cloudy') {
     writeWeather.textContent = 'Cloudy'
     weatherIcon.src = `assets/weathericons/cloudy.png`
+    weatherIcon.addEventListener('mouseover', (event) => {});
+    onmouseover = (event) => { 
+      const dogReact = document.createElement( 'p' )
+      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogHouse.innerText = ''
+      dogHouse.append(dogReact)
+    };
   } else if (dayWeather === 'rain' || 'lightrain') {
     writeWeather.textContent = 'Rain'
     weatherIcon.src = `assets/weathericons/rain.png`
+    weatherIcon.addEventListener('mouseover', (event) => {});
+    onmouseover = (event) => { 
+      const dogReact = document.createElement( 'p' )
+      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogHouse.innerText = ''
+      dogHouse.append(dogReact)
+    };
   } else if (dayWeather === 'snow' || 'lightsnow') {
     writeWeather.textContent = 'Snow'
     weatherIcon.src = `assets/weathericons/snow.png`
+    weatherIcon.addEventListener('mouseover', (event) => {});
+    onmouseover = (event) => { 
+      const dogReact = document.createElement( 'p' )
+      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogHouse.innerText = ''
+      dogHouse.append(dogReact)
+    };
   } else if (dayWeather === 'ts') {
     writeWeather.textContent = 'Thunder Storm'
     weatherIcon.src = `assets/weathericons/ts.png`
+    weatherIcon.addEventListener('mouseover', (event) => {});
+    onmouseover = (event) => { 
+      const dogReact = document.createElement( 'p' )
+      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogHouse.innerText = ''
+      dogHouse.append(dogReact)
+    };
   } else if (dayWeather === 'tsrain') {
     writeWeather.textContent = 'Thunder and Rain'
     weatherIcon.src = `assets/weathericons/tsrain.png`
+    weatherIcon.addEventListener('mouseover', (event) => {});
+    onmouseover = (event) => { 
+      const dogReact = document.createElement( 'p' )
+      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogHouse.innerText = ''
+      dogHouse.append(dogReact)
+    };
   } else {
     writeWeather.textContent = "there was error:("
     weatherIcon.src = `assets/weathericons/oops.png`
