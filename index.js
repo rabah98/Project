@@ -8,9 +8,7 @@ const locationUrl = `http://www.7timer.info/bin/api.pl?lon=${userLon}&lat=${user
 const daySelectionBar = document.getElementById('day-selection-bar')
 const focusDay = document.getElementById('day-focus-container')
 const focusDayCardInbox = document.querySelectorAll(':scope > div')
-const daySelectionBarReplacer = document.createElement('div')
-daySelectionBarReplacer.id = 'day-selection-bar-replacer'
-// const divThatCardReplaces = document.getElementById('div-that-card-replaces')
+
 
 // document.getElementById().addEventListener("submit", (e) => {
 //    const text= e.target.comment.value
@@ -25,15 +23,12 @@ userInputs.addEventListener('submit', (e) => {
     e.preventDefault()
     daySelectionBar.innerHTML = ""
   initialFetch()
-  // daySelectionBar.append(daySelectionBarReplacer)
   }
   
 })
 
 //fetch function
 function initialFetch () {
-  // fetch(locationUrl)
-  // placeholder fetch for testing
   fetch(locationUrl)
   .then( res => res.json())
   .then( days => {
