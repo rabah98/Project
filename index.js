@@ -9,26 +9,21 @@ const daySelectionBar = document.getElementById('day-selection-bar')
 const focusDay = document.getElementById('day-focus-container')
 const focusDayCardInbox = document.querySelectorAll(':scope > div')
 const divThatCardReplaces = document.getElementById('div-that-card-replaces')
-const dogHouse = document.getElementById('dog-house')
 
- function commentSection(e){
-   const commentList=document.getElementById("geek")
-   const text= e.target.dogger.value
-   const li=document.createElement("li")
-  li.textContent=text
-   commentList.append(li)
- console.log("lele")
+// document.getElementById().addEventListener("submit", (e) => {
+//    const text= e.target.comment.value
+//     const li=document.createElement("li")
+//     li.textContent=text
+//     commentlist.append(li)
+// });
 
- }
- document.getElementById("comment-form").addEventListener("submit", (e) => {
-   commentSection(e)
-   e.preventDefault()
-});
 // Event lisntener for user inputs
 userInputs.addEventListener('submit', (e) => {
-  e.preventDefault()
+  if (userLat.value && userLon.value) {
+    e.preventDefault()
   initialFetch()
-
+  }
+  
 })
 
 //fetch function
@@ -67,16 +62,9 @@ function funcToRenderDayCards(daysObject) {
       liDate.append(dayDate) //We should cut this for 'writeDate'
       const likeButton = document.createElement('button')
       const likeCounterSpan = document.createElement('span')
-      // const likeStringSpan = document.createElement('p')
-      // likeStringSpan.textContent = ' likes'
-      // likeCounterSpan.append(likeStringSpan)
       likeCounterSpan.textContent = 0
-      
       likeButton.textContent = `❤️ ${likeCounterSpan.textContent} likes`
       
-      
-      // likeButton.appendChild(likeCounterSpan)
-      // likeButton.appendChild(likeStringSpan)
       likeButton.addEventListener('click', () => {
       likeCounterSpan.textContent = parseInt(likeCounterSpan.textContent) + 1
       likeButton.textContent = `❤️ ${likeCounterSpan.textContent} likes`
@@ -119,7 +107,9 @@ function funcToRenderDayCards(daysObject) {
         focusDayCard.appendChild(liFocusWeather)
         focusDayCard.appendChild(liFocusDate)
         focusDayCard.appendChild(focusDayCardLineTwo)
-               
+        
+
+        
 
       })
       daySelectionBar.append(dayCard) 
@@ -130,73 +120,24 @@ function weatherAssigner(dayWeather, writeWeather, weatherIcon) {
   if (dayWeather === 'clear') {
     writeWeather.textContent = 'Clear'
     weatherIcon.src = `assets/weathericons/clear.png`
-    weatherIcon.addEventListener('mouseover', (event) => {});
-    onmouseover = (event) => { 
-      const dogReact = document.createElement( 'p' )
-      dogReact.textContent ='😍 I could go for a walk that day...'
-      dogHouse.innerText = ''
-      dogHouse.append(dogReact)
-    };
   } else if (dayWeather === 'pcloudy') {
     writeWeather.textContent = 'Partly Cloudy'
     weatherIcon.src = `assets/weathericons/pcloudy.png`
-    weatherIcon.addEventListener('mouseover', (event) => {});
-    onmouseover = (event) => { 
-      const dogReact = document.createElement( 'p' )
-      dogReact.textContent ='😍 I could go for a walk that day...'
-      dogHouse.innerText = ''
-      dogHouse.append(dogReact)
-    };
   } else if (dayWeather === 'cloudy') {
     writeWeather.textContent = 'Cloudy'
     weatherIcon.src = `assets/weathericons/cloudy.png`
-    weatherIcon.addEventListener('mouseover', (event) => {});
-    onmouseover = (event) => { 
-      const dogReact = document.createElement( 'p' )
-      dogReact.textContent ='😍 I could go for a walk that day...'
-      dogHouse.innerText = ''
-      dogHouse.append(dogReact)
-    };
   } else if (dayWeather === 'rain' || 'lightrain') {
     writeWeather.textContent = 'Rain'
     weatherIcon.src = `assets/weathericons/rain.png`
-    weatherIcon.addEventListener('mouseover', (event) => {});
-    onmouseover = (event) => { 
-      const dogReact = document.createElement( 'p' )
-      dogReact.textContent ="😩 I don't wanna..."
-      dogHouse.innerText = ''
-      dogHouse.append(dogReact)
-    };
   } else if (dayWeather === 'snow' || 'lightsnow') {
     writeWeather.textContent = 'Snow'
     weatherIcon.src = `assets/weathericons/snow.png`
-    weatherIcon.addEventListener('mouseover', (event) => {});
-    onmouseover = (event) => { 
-      const dogReact = document.createElement( 'p' )
-      dogReact.textContent ="😩 I don't wanna..."
-      dogHouse.innerText = ''
-      dogHouse.append(dogReact)
-    };
   } else if (dayWeather === 'ts') {
     writeWeather.textContent = 'Thunder Storm'
     weatherIcon.src = `assets/weathericons/ts.png`
-    weatherIcon.addEventListener('mouseover', (event) => {});
-    onmouseover = (event) => { 
-      const dogReact = document.createElement( 'p' )
-      dogReact.textContent ="😩 I don't wanna..."
-      dogHouse.innerText = ''
-      dogHouse.append(dogReact)
-    };
   } else if (dayWeather === 'tsrain') {
     writeWeather.textContent = 'Thunder and Rain'
     weatherIcon.src = `assets/weathericons/tsrain.png`
-    weatherIcon.addEventListener('mouseover', (event) => {});
-    onmouseover = (event) => { 
-      const dogReact = document.createElement( 'p' )
-      dogReact.textContent ="😩 I don't wanna..."
-      dogHouse.innerText = ''
-      dogHouse.append(dogReact)
-    };
   } else {
     writeWeather.textContent = "there was error:("
     weatherIcon.src = `assets/weathericons/oops.png`
