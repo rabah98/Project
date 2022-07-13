@@ -5,6 +5,20 @@ const locationUrl = `http://www.7timer.info/bin/api.pl?lon=${userLon}&lat=${user
 const daySelectionBar = document.getElementById('day-selection-bar')
 const focusDay = document.getElementById('day-focus-container')
 const focusDayCardInbox = document.querySelectorAll(':scope > div')
+const dogHouse = document.getElementById('dog-house')
+
+function commentSection(e){
+  const commentList = document.getElementById("div")
+  const text = e.target.dogger.value
+  const li = document.createElement("li")
+  li.textContent = text
+  commentList.append(li)
+console.log("lele")
+}
+document.getElementById("comments-container").addEventListener('submit', (e) => {
+  commentSection(e)
+  e.preventDefault()
+});
 // Event lisntener for user inputs
 document.querySelector('form').addEventListener('submit', (e) => {
   if (userLat.value && userLon.value) {
@@ -117,7 +131,7 @@ function weatherAssigner(dayWeather, writeWeather, weatherIcon) {
     weatherIcon.addEventListener('mouseover', (event) => {});
     onmouseover = (event) => { 
       const dogReact = document.createElement( 'p' )
-      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogReact.textContent ="😩 I don't wanna..."
       dogHouse.innerText = ''
       dogHouse.append(dogReact)
     };
@@ -127,7 +141,7 @@ function weatherAssigner(dayWeather, writeWeather, weatherIcon) {
     weatherIcon.addEventListener('mouseover', (event) => {});
     onmouseover = (event) => { 
       const dogReact = document.createElement( 'p' )
-      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogReact.textContent ="😩 I don't wanna..."
       dogHouse.innerText = ''
       dogHouse.append(dogReact)
     };
@@ -137,7 +151,7 @@ function weatherAssigner(dayWeather, writeWeather, weatherIcon) {
     weatherIcon.addEventListener('mouseover', (event) => {});
     onmouseover = (event) => { 
       const dogReact = document.createElement( 'p' )
-      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogReact.textContent ="😩 I don't wanna..."
       dogHouse.innerText = ''
       dogHouse.append(dogReact)
     };
@@ -147,7 +161,7 @@ function weatherAssigner(dayWeather, writeWeather, weatherIcon) {
     weatherIcon.addEventListener('mouseover', (event) => {});
     onmouseover = (event) => { 
       const dogReact = document.createElement( 'p' )
-      dogReact.textContent ='😍 I could go for a walk that day...'
+      dogReact.textContent ="😩 I don't wanna..."
       dogHouse.innerText = ''
       dogHouse.append(dogReact)
     };
