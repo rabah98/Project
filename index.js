@@ -8,7 +8,7 @@ const focusDayCardInbox = document.querySelectorAll(':scope > div')
 const dogHouse = document.getElementById('dog-house')
 
 function commentSection(e){
-  const commentList = document.getElementById("div")
+  const commentList = document.getElementById("geek")
   const text = e.target.dogger.value
   const li = document.createElement("li")
   li.textContent = text
